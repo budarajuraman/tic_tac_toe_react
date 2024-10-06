@@ -1,38 +1,177 @@
+/* App Container */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Board Row */
+.board-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* Board Container */
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Square Styling */
+.square {
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.square:hover {
+  background-color: #ececec;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* X and O Color Styling */
+.square h5.X {
+  color: #ff6b6b;
+}
+
+.square h5.O {
+  color: #1e90ff;
+}
+
+/* Player Turn Styling */
+.player-turn.X {
+  color: #ff6b6b;
+}
+
+.player-turn.O {
+  color: #1e90ff;
+}
+
+/* Winner Announcement */
+.winner-message {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Play Again Button */
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Fireworks Animation */
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  background: transparent;
+  width: 10px; 
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.9);
+  animation: fireworks 2s infinite;
+}
+
+@keyframes fireworks {
+  0% {
+    transform: scale(0.5) translateY(0);
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.25) translateY(-100px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(-200px);
+    opacity: 0;
   }
 }
+
+/* Color variations */
+.firework:nth-child(1) {
+  background-color: rgba(255, 0, 0, 0.8);
+  top: 30%;
+  left: 20%;
+  animation-delay: 0.1s;
+}
+
+.firework:nth-child(2) {
+  background-color: rgba(0, 255, 0, 0.8);
+  top: 40%;
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.firework:nth-child(3) {
+  background-color: rgba(0, 0, 255, 0.8);
+  top: 50%;
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.firework:nth-child(4) {
+  background-color: rgba(255, 255, 0, 0.8);
+  top: 20%;
+  left: 70%;
+  animation-delay: 0.25s;
+}
+
+.firework:nth-child(5) {
+  background-color: rgba(255, 105, 180, 0.8);
+  top: 60%;
+  left: 30%;
+  animation-delay: 1.65s;
+}
+
+.firework:nth-child(6) {
+  background-color: rgba(0, 255, 255, 0.8);
+  top: 70%;
+  left: 50%;
+  animation-delay: 0.45s;
+}
+
